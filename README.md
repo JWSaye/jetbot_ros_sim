@@ -1,9 +1,77 @@
 # jetbot_ros
 ROS2 nodes and Gazebo model for NVIDIA JetBot
 
-### Prerequisites
+## Prerequisites
 
-Ensure you have ROS2 Foxy and Gazebo installed on your Ubuntu machine. For installation instructions, refer to the official ROS2 and Gazebo documentation.
+Ensure you have ROS2 Foxy and Gazebo installed on your Ubuntu machine.
+
+## Setup ROS2 Foxy
+
+### Setup Sources
+
+You will need to add the ROS 2 apt repository to your system.
+
+First, ensure that the Ubuntu Universe repository is enabled:
+
+```bash
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+
+Now add the ROS 2 GPG key with apt:
+
+```bash
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+
+Then add the repository to your sources list:
+
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+### Install ROS 2 Packages
+
+Update your apt repository caches after setting up the repositories:
+
+```bash
+sudo apt update
+```
+
+ROS 2 packages are built on frequently updated Ubuntu systems. It is always recommended that you ensure your system is up to date before installing new packages:
+
+```bash
+sudo apt upgrade
+```
+
+Now choose which level of ROS 2 to install from the updated packages:
+
+- **Desktop Install (Recommended):** Includes ROS, RViz, demos, tutorials.
+
+    ```bash
+    sudo apt install ros-foxy-desktop python3-argcomplete
+    ```
+
+- ROS-Base Install (Bare Bones): Includes communication libraries, message packages, command line tools. No GUI tools.
+
+    ```bash
+    sudo apt install ros-foxy-ros-base python3-argcomplete
+    ```
+
+- Development Tools: Compilers and other tools to build ROS packages:
+
+    ```bash
+    sudo apt install ros-dev-tools
+    ```
+
+#### Environment Setup
+
+To automatically source the ROS2 environment in each new shell session, add the sourcing command to your ~/.bashrc file:
+
+```bash
+echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
 
 ### Setup
 Clone the repository and navigate into the project directory:
