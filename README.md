@@ -76,8 +76,8 @@ source ~/.bashrc
 ### Setup
 Clone the repository and navigate into the project directory:
 ``` bash
-git clone https://github.com/dusty-nv/jetbot_ros
-cd jetbot_ros
+git clone https://github.com/JWSaye/jetbot_ros_sim.git
+cd jetbot_ros_sim
 ```
 
 ### Launch Gazebo
