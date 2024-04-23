@@ -80,6 +80,48 @@ git clone https://github.com/JWSaye/jetbot_ros_sim.git
 cd jetbot_ros_sim
 ```
 
+### Install and Initialize Gazebo
+
+To install Gazebo, run the following command:
+``` bash
+sudo apt install gazebo9
+```
+
+To start Gazebo, run the following command:
+``` bash
+gazebo
+```
+
+### Install jetbot Model
+
+Next, the jetbot model needs to be installed in the Gazebo environment. To do this, run the following commands:
+
+``` bash
+cd gazebo
+./install_jetbot_model.sh
+```
+
+This will create a link in the ~/.gazebo/models directory to the jetbot model in ~/jetbot_ros_sim/gazebo/models/jetbot.
+
+### Install jetbot_ros Package
+
+
+##### Troubleshooting
+If you encounter any issues with the CUDA toolkit installation, try the following:
+
+```bash
+sudo apt-get install nvidia-cuda-toolkit nvidia-cuda-dev libcupti-dev
+```
+
+GNU version too large?
+```bash
+# Install version 6 of gcc and g++ packages
+sudo apt-get install gcc-6 g++-6 g++-6-multilib
+
+# Override the link from the current gcc version to the newly installed V6
+sudo ln -sf /usr/bin/gcc-6 /usr/bin/gcc
+```
+
 ### Launch Gazebo
 
 ``` bash
